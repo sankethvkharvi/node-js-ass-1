@@ -9,3 +9,16 @@ function showMessage() {
     console.log(msg);
   });
   
+  const fs = require('fs').promises;
+
+async function createFile() {
+  const content = 'This file was created using fs module and async/await!';
+  try {
+    await fs.writeFile('message.txt', content);
+    console.log('✅ File created successfully!');
+  } catch (err) {
+    console.error('❌ Error creating file:', err);
+  }
+}
+
+createFile();
